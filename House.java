@@ -94,6 +94,8 @@ public class House extends Building {
     return description;
   }
 
+  //get active floor
+
   public static void main(String[] args) {
     House wilson = new House("Wilson House", "16 Kensington Ave", 4, true);
     wilson.moveIn("Claire");
@@ -104,5 +106,10 @@ public class House extends Building {
     System.out.println(wilson.isResident("Claire"));
     //wilson.moveOut("Logan");
     System.out.println(wilson);
+    wilson.enter();
+    wilson.exit();
+    wilson.showOptions();
+    wilson.enter();
+    wilson.goUp();
   }
 }
