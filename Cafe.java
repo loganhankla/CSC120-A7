@@ -26,6 +26,13 @@
         this.nCups = 47;
     }
 
+    public void showOptions() {
+        System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + sellCoffee()");
+    }
+
+    //could make gotofloor throw an exception
+    //for house, can also super.showOptions, then
+
     /** This method is used to sell coffee, altering the inventory after a sale is made.
      * @param size The number of ounces of coffee in the sale
      * @param nSugarPackets The number of sugar packets in the sale
@@ -76,6 +83,7 @@
         System.out.println("Sugar in Stock: " + compass.nSugarPackets);
         System.out.println("Creams in Stock: " + compass.nCreams);
         System.out.println("Cups in Stock: " + compass.nCups);
+        compass.showOptions();
     }
     
 }

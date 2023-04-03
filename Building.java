@@ -108,7 +108,7 @@ public class Building {
         System.out.println("-----------------------------------");
         fordHall.enter();
         fordHall.goUp();
-        fordHall.goDown();
+        //fordHall.goDown();
         fordHall.exit();
     }
 

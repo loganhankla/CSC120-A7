@@ -22,6 +22,12 @@ public class Library extends Building {
     this.collection = new Hashtable<String, Boolean>();
   }
 
+
+  public void showOptions() {
+    super.showOptions();
+    System.out.println("+ addTitle() \n + removeTitle() \n + checkOut() \n + returnBook() \n + containsTitle() \n + isAvailable() \n + printCollection()");
+  }
+
   /** This method adds a book to the collection by adding the title as a key in the Hashtable collection and true as the value.
    * @param title The title of the book added to the collection
    */

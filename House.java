@@ -25,6 +25,15 @@ public class House extends Building {
     this.hasDiningRoom = diningRoom; 
   }
 
+
+  public void showOptions() {
+    super.showOptions();
+    System.out.println("+ moveIn() \n + moveOut() \n + ");
+  }
+//hasDiningRoom, nResidents, isResident, toString?
+
+
+
   /**This getter returns a boolean for whether or not a House has a dining room.
    * @return Whether the particular House has a dining room.
    */
