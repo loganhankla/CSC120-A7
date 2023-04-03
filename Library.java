@@ -10,22 +10,48 @@ import java.util.Hashtable;
 public class Library extends Building {
 
   private Hashtable<String, Boolean> collection;
+  private boolean hasElevator;
 
   /** The Library constructor creates a new Library that inherits from the Building class.
    * @param name The name of the library  
    * @param address The address of the library
    * @param nFloors The number of floors in the library
    */
-  public Library(String name, String address, int nFloors) {
+  public Library(String name, String address, int nFloors, boolean hasElevator) {
     super(name, address, nFloors);
+    this.hasElevator = hasElevator;
     System.out.println("You have built a library: 📖");
     this.collection = new Hashtable<String, Boolean>();
   }
 
+  public Library(String name, String address, int nFloors){
+    this(name, address, nFloors, nFloors > 1);
+
+  }
 
   public void showOptions() {
     super.showOptions();
     System.out.println("+ addTitle() \n + removeTitle() \n + checkOut() \n + returnBook() \n + containsTitle() \n + isAvailable() \n + printCollection()");
+  }
+
+  //below copied from Building
+ /*  public void goToFloor(int floorNum) {
+    if (this.activeFloor == -1) {
+        throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
+    }
+    if (floorNum < 1 || floorNum > this.nFloors) {
+        throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
+    }
+    System.out.println("You are now on floor #" + floorNum + " of " + this.name);
+    this.activeFloor = floorNum;
+  } */
+
+  public void goToFloor(int floorNum){ //?? check
+    if(this.hasElevator()){
+      super.goToFloor(floorNum);
+    } else{
+      throw new RuntimeException("This library doesn't have an elevator. Use goUp() or goDown() instead.");
+    }
   }
 
   /** This method adds a book to the collection by adding the title as a key in the Hashtable collection and true as the value.
@@ -81,6 +107,10 @@ public class Library extends Building {
     return this.collection.containsKey(title);
   }
 
+  public boolean hasElevator(){
+    return this.hasElevator;
+  }
+
   /** This method checks whether a given book is available to be checked out.
    * @param title The title of the book we're checking
    * @return Boolean for whether the book is available
@@ -102,7 +132,7 @@ public class Library extends Building {
   }
 
   public static void main(String[] args) {
-    Library neilson = new Library("Neilson Library", "1 Chapin Way", 4);
+    Library neilson = new Library("Neilson Library", "1 Chapin Way", 4, false);
     neilson.addTitle("Great Expectations");
     neilson.addTitle("On Such a Full Sea");
     neilson.addTitle("The Other Black Girl");
@@ -113,6 +143,7 @@ public class Library extends Building {
     neilson.returnBook("On Such a Full Sea");
     System.out.println("Second print: ");
     neilson.printCollection();
+    System.out.println(neilson.hasElevator());
   }
   
 }
