@@ -26,7 +26,6 @@ public class Library extends Building {
 
   public Library(String name, String address, int nFloors){
     this(name, address, nFloors, nFloors > 1);
-
   }
 
   public void showOptions() {
@@ -34,23 +33,11 @@ public class Library extends Building {
     System.out.println("+ addTitle() \n + removeTitle() \n + checkOut() \n + returnBook() \n + containsTitle() \n + isAvailable() \n + printCollection()");
   }
 
-  //below copied from Building
- /*  public void goToFloor(int floorNum) {
-    if (this.activeFloor == -1) {
-        throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
-    }
-    if (floorNum < 1 || floorNum > this.nFloors) {
-        throw new RuntimeException("Invalid floor number. Valid range for this Building is 1-" + this.nFloors +".");
-    }
-    System.out.println("You are now on floor #" + floorNum + " of " + this.name);
-    this.activeFloor = floorNum;
-  } */
-
-  public void goToFloor(int floorNum){ //?? check
+  public void goToFloor(int floorNum){
     if(this.hasElevator()){
       super.goToFloor(floorNum);
     } else{
-      throw new RuntimeException("This library doesn't have an elevator. Use goUp() or goDown() instead.");
+      throw new RuntimeException("This library doesn't have an elevator. Use goUp() or goDown() using the stairs instead.");
     }
   }
 
@@ -144,6 +131,7 @@ public class Library extends Building {
     System.out.println("Second print: ");
     neilson.printCollection();
     System.out.println(neilson.hasElevator());
+    neilson.goToFloor(3);
   }
   
 }

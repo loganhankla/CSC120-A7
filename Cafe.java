@@ -61,6 +61,11 @@
         }
     }
 
+//overloading
+    public void sellCoffee(int size){
+        this.sellCoffee(size, 2, 2);
+    }
+
     /** This method restocks the inventory as needed.
      * @param nCoffeeOunces The number of ounces of coffee to restock
      * @param nSugarPackets The number of sugar packets to restock
