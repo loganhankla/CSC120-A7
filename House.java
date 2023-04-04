@@ -11,6 +11,7 @@ public class House extends Building {
   
   private ArrayList<String> residents; 
   private boolean hasDiningRoom; 
+  private boolean hasElevator;
 
   /** The House constructor creates a new House that inherits from the Building class.
    * @param name The name of the new House.
@@ -18,21 +19,39 @@ public class House extends Building {
    * @param nFloors The number of floors in the new House.
    * @param diningRoom A boolean  for whether the House contains a dining room.
    */
-  public House(String name, String address, int nFloors, boolean diningRoom) {
+  public House(String name, String address, int nFloors, boolean diningRoom, boolean hasElevator) {
     //System.out.println("You have built a house: 🏠");
     super(name, address, nFloors); 
     this.residents = new ArrayList<String>(); 
     this.hasDiningRoom = diningRoom; 
+    this.hasElevator = hasElevator;
   }
 
   //overload
-  public House(String name, String address, int nFloors) {
-    this(name, address, nFloors, false);
+  public House(String name, String address, int nFloors, boolean diningRoom) {
+    this(name, address, nFloors, diningRoom, nFloors > 1);
+  }
+
+  //overload
+  public House(String name, String address, int nFloors){
+    this(name, address, nFloors, false, nFloors > 1);
+  }
+
+  public boolean hasElevator(){
+    return this.hasElevator;
+  }
+
+  public void goToFloor(int floorNum){
+    if(this.hasElevator()){
+      super.goToFloor(floorNum);
+    } else{
+      throw new RuntimeException("This house doesn't have an elevator. Use goUp() or goDown() using the stairs instead.");
+    }
   }
 
   public void showOptions() {
     super.showOptions();
-    System.out.println("+ moveIn() \n + moveOut() \n + hasDiningRoom() \n + isResident() \n + nResidents()");
+    System.out.println("+ moveIn() \n + moveOut() \n + hasDiningRoom() \n + isResident() \n + nResidents() \n goToFloor()");
   }
 
   /**This getter returns a boolean for whether or not a House has a dining room.

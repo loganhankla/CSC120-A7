@@ -29,9 +29,15 @@ public class Library extends Building {
     this(name, address, nFloors, nFloors > 1);
   }
 
+  /*Overload */
+  public Library(String name, String address){
+    this(name, address, 2, true);
+  }
+
+
   public void showOptions() {
     super.showOptions();
-    System.out.println("+ addTitle() \n + removeTitle() \n + checkOut() \n + returnBook() \n + containsTitle() \n + isAvailable() \n + printCollection()");
+    System.out.println("+ addTitle() \n + removeTitle() \n + checkOut() \n + returnBook() \n + containsTitle() \n + isAvailable() \n + printCollection() \n + goToFloor()");
   }
 
   public void goToFloor(int floorNum){
