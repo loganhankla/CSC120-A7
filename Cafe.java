@@ -11,6 +11,7 @@
     private int nSugarPackets;
     private int nCreams;
     private int nCups;
+    private int activeFloor;
     
     /** The Cafe constructor creates a new Cafe that inherits from the Building class.
      * @param name The name of the Cafe
@@ -24,14 +25,29 @@
         this.nSugarPackets = 175;
         this.nCreams = 109;
         this.nCups = 47;
+        this.activeFloor = -1; //added later
+    }
+
+    //overload
+    public Cafe(String name, String address){
+        this(name, address, 1);
     }
 
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + sellCoffee()");
     }
 
-    //could make gotofloor throw an exception
-    //for house, can also super.showOptions, then
+    public void getActiveFloor(){ //added for goToFloor
+        System.out.println(this.activeFloor);
+    }
+
+    public void goToFloor(int floorNum){
+        if(floorNum > 1){
+            throw new RuntimeException("Customers are not allowed upstairs, please remain on the first floor.");
+        } else{
+            this.activeFloor = 1;
+        }
+    }
 
     /** This method is used to sell coffee, altering the inventory after a sale is made.
      * @param size The number of ounces of coffee in the sale
@@ -89,6 +105,10 @@
         System.out.println("Creams in Stock: " + compass.nCreams);
         System.out.println("Cups in Stock: " + compass.nCups);
         compass.showOptions();
+        compass.enter(); //why isn't enter making activeFloor = 1
+        compass.getActiveFloor();
+        compass.goToFloor(1);
+
     }
     
 }

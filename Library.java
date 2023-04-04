@@ -24,6 +24,7 @@ public class Library extends Building {
     this.collection = new Hashtable<String, Boolean>();
   }
 
+  /*Overload */
   public Library(String name, String address, int nFloors){
     this(name, address, nFloors, nFloors > 1);
   }

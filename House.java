@@ -25,6 +25,11 @@ public class House extends Building {
     this.hasDiningRoom = diningRoom; 
   }
 
+  //overload
+  public House(String name, String address, int nFloors) {
+    this(name, address, nFloors, false);
+  }
+
   public void showOptions() {
     super.showOptions();
     System.out.println("+ moveIn() \n + moveOut() \n + hasDiningRoom() \n + isResident() \n + nResidents()");
