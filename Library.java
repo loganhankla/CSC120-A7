@@ -24,22 +24,34 @@ public class Library extends Building {
     this.collection = new Hashtable<String, Boolean>();
   }
 
-  /*Overload */
+  /** Constructs a new library, allows elevator status not to be input (through overloading)
+   * @param name Library name
+   * @param address Library address
+   * @param nFloors Number of floors in library
+  */
   public Library(String name, String address, int nFloors){
     this(name, address, nFloors, nFloors > 1);
   }
 
-  /*Overload */
+  /** Constructs overloaded library, setting to default values for number of floors and having an elevator
+   * @param name Library name
+   * @param address Library address
+   */
   public Library(String name, String address){
     this(name, address, 2, true);
   }
 
 
+  /** Shows method options */
   public void showOptions() {
     super.showOptions();
     System.out.println("+ addTitle() \n + removeTitle() \n + checkOut() \n + returnBook() \n + containsTitle() \n + isAvailable() \n + printCollection() \n + goToFloor()");
   }
 
+  /** Allows movement between floors using the elevator only.
+   * @param floorNum Floor number for destination
+   * @throws RuntimeException If library doesn't have elevator
+   */
   public void goToFloor(int floorNum){
     if(this.hasElevator()){
       super.goToFloor(floorNum);
@@ -101,6 +113,9 @@ public class Library extends Building {
     return this.collection.containsKey(title);
   }
 
+  /** Checks if library has an elevator.
+   * @return boolean if there is an elevator
+   */
   public boolean hasElevator(){
     return this.hasElevator;
   }
