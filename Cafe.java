@@ -11,7 +11,6 @@
     private int nSugarPackets;
     private int nCreams;
     private int nCups;
-    private int activeFloor;
     
     /** The Cafe constructor creates a new Cafe that inherits from the Building class.
      * @param name The name of the Cafe
@@ -116,10 +115,8 @@
         System.out.println("Creams in Stock: " + compass.nCreams);
         System.out.println("Cups in Stock: " + compass.nCups);
         compass.showOptions();
-        compass.enter(); //why isn't enter making activeFloor = 1
+        compass.enter(); 
         compass.getActiveFloor();
-        compass.goToFloor(1);
-
     }
     
 }
