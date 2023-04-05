@@ -28,19 +28,28 @@
         this.activeFloor = -1; //added later
     }
 
-    //overload
+    /** Overloaded Cafe constructor allowing omission of number of floors
+     * @param name Cafe name
+     * @param address Cafe address
+     */
     public Cafe(String name, String address){
         this(name, address, 1);
     }
 
+    /** Displays method options for Cafe class */
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + sellCoffee()");
     }
 
+    /** Accessor for the active floor */
     public void getActiveFloor(){ //added for goToFloor
         System.out.println(this.activeFloor);
     }
 
+    /** Prohibits movement upstairs for customers
+     * @param floorNum Customer's desired destination floor number
+     * @throws RuntimeException If customer asks to go to floor 2+
+     */
     public void goToFloor(int floorNum){
         if(floorNum > 1){
             throw new RuntimeException("Customers are not allowed upstairs, please remain on the first floor.");
@@ -77,7 +86,9 @@
         }
     }
 
-//overloading
+    /** Overloaded method to sell coffee allowing customer to specify only size
+     * @param size Coffee size
+     */
     public void sellCoffee(int size){
         this.sellCoffee(size, 2, 2);
     }
