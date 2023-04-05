@@ -126,7 +126,7 @@ public class Library extends Building {
   }
 
   public static void main(String[] args) {
-    Library neilson = new Library("Neilson Library", "1 Chapin Way", 4, false);
+    Library neilson = new Library("Neilson Library", "1 Chapin Way", 4, true);
     neilson.addTitle("Great Expectations");
     neilson.addTitle("On Such a Full Sea");
     neilson.addTitle("The Other Black Girl");
@@ -138,6 +138,7 @@ public class Library extends Building {
     System.out.println("Second print: ");
     neilson.printCollection();
     System.out.println(neilson.hasElevator());
+    neilson.enter();
     neilson.goToFloor(3);
   }
   
