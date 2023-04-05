@@ -27,20 +27,36 @@ public class House extends Building {
     this.hasElevator = hasElevator;
   }
 
-  //overload
+  /** Overloaded House constructor allowing omission of hasElevator boolean
+   * @param name House name
+   * @param address House address
+   * @param nFloors Number of floors in house
+   * @param diningRoom whether house has dining room
+   */
   public House(String name, String address, int nFloors, boolean diningRoom) {
     this(name, address, nFloors, diningRoom, nFloors > 1);
   }
 
-  //overload
+  /** Overloaded House constructor allowing omission of hasElevator and diningRoom booleans
+   * @param name House name
+   * @param address House address
+   * @param nFloors Number of floors in house
+   */
   public House(String name, String address, int nFloors){
     this(name, address, nFloors, false, nFloors > 1);
   }
 
+  /** Accesses whether house has an elevator
+   * @return If house has an elevator
+   */
   public boolean hasElevator(){
     return this.hasElevator;
   }
 
+  /** Allows movement between floors if house has an elevator
+   * @param floorNum Destination floor number
+   * @throws RuntimeException If house does not have an elevator
+   */
   public void goToFloor(int floorNum){
     if(this.hasElevator()){
       super.goToFloor(floorNum);
@@ -49,6 +65,7 @@ public class House extends Building {
     }
   }
 
+  /** Displays method options */
   public void showOptions() {
     super.showOptions();
     System.out.println("+ moveIn() \n + moveOut() \n + hasDiningRoom() \n + isResident() \n + nResidents() \n goToFloor()");
@@ -122,8 +139,6 @@ public class House extends Building {
     description += " a dining room.";
     return description;
   }
-
-  //get active floor
 
   public static void main(String[] args) {
     House wilson = new House("Wilson House", "16 Kensington Ave", 4, false);
