@@ -20,7 +20,7 @@ __YES___ 1 pt: The `Library` class has a `goToFloor(...)` method that allows mov
 
 ___YES__ 1 pt: The `House` class has a `goToFloor(...)` method that allows movement between non-adjacent floors only if an elevator is present
 
-_____ 1 pt: The `Cafe` class has a `goToFloor(...)` method that doesn't permit movement off the first floor (we assume that any additional floors are for storage / accessible only to employees)
+___YES__ 1 pt: The `Cafe` class has a `goToFloor(...)` method that doesn't permit movement off the first floor (we assume that any additional floors are for storage / accessible only to employees)
 
 ### Level 2: Method `Overloads` (3 pts)
 
@@ -40,22 +40,22 @@ ___YES__ 1 pt: The `CampusMap` includes at least one instance of each class: a `
 
 ## General Items:
 
-_____ 4 pts: Programs compile without errors or warnings
+___YES__ 4 pts: Programs compile without errors or warnings
 
-_____ 2 pts: Executes fully & consistently without crashing (exception/freeze)
+__YES___ 2 pts: Executes fully & consistently without crashing (exception/freeze)
 
-_____ 2 pt: Complies with style guidelines (missing items 1 pt each):
+__YES___ 2 pt: Complies with style guidelines (missing items 1 pt each):
 
-      _____ Classes & class members all have Javadoc header comments
+      __YES___ Classes & class members all have Javadoc header comments
 
-      _____ Clear and consistent indentation of bracketed sections
+      ___YES__ Clear and consistent indentation of bracketed sections
 
-      _____ Adheres to Java conventions on naming & capitalization
+      ___YES__ Adheres to Java conventions on naming & capitalization
 
-      _____ Methods & variables all have clear and accurate names
+      ___YES__ Methods & variables all have clear and accurate names
 
-      _____ Methods avoid confusing side effects
+      ___YES__ Methods avoid confusing side effects
 
-_____ 1 pt: All required files included with submission (including completed `rubric.md` file)
+__YES___ 1 pt: All required files included with submission (including completed `rubric.md` file)
 
-_____ 1 pt: `reflection.md` contains your reflection on the assignment
+__YES___ 1 pt: `reflection.md` contains your reflection on the assignment

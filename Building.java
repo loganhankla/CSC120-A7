@@ -6,23 +6,28 @@ public class Building {
     protected int nFloors;
     protected int activeFloor = -1; // Default value indicating we are not inside this building
 
-    /* Default constructor */
+    /** Default Building constructor */
     public Building() {
         this("<Name Unknown>", "<Address Unknown>", 1);
     }
 
-    /* Overloaded constructor with address only */
+    /** Overloaded Building constructor with address only 
+     * @param address Building address
+    */
     public Building(String address) {
         this(); // Call default constructor
         this.address = address; // Override address
     }
 
-    /* Overloaded constructor with name, address */
+    /** Overloaded Building constructor with name, address 
+     * @param name Building name
+     * @param address Building address
+    */
     public Building(String name, String address) {
         this(name, address, 1); // Call full constructor with hard-coded # floors
     }
 
-    /** Building constructor
+    /** OVerloaded building constructor
      * @param name Building name
      * @param address Building address
      * @param nFloors number of floors in building
@@ -67,6 +72,7 @@ public class Building {
 
     /** Exit method
      * @throws RuntimeException
+     * @return null outside building
      */
     public Building exit() {
         if (this.activeFloor == -1) {
@@ -95,14 +101,17 @@ public class Building {
         this.activeFloor = floorNum;
     }
 
+    /** Method to go up one floor */
     public void goUp() {
         this.goToFloor(this.activeFloor + 1);
     }
 
+    /** Method to go down one floor */
     public void goDown() {
         this.goToFloor(this.activeFloor - 1);
     }
 
+    /** Displays method options */
     public void showOptions() {
         System.out.println("Available options at " + this.name + ":\n + enter() \n + exit() \n + goUp() \n + goDown()\n + goToFloor(n)");
     }
