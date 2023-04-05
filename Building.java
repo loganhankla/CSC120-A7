@@ -22,7 +22,12 @@ public class Building {
         this(name, address, 1); // Call full constructor with hard-coded # floors
     }
 
-    /* Full constructor */
+    /** Building constructor
+     * @param name Building name
+     * @param address Building address
+     * @param nFloors number of floors in building
+     * @throws RuntimeException
+     */
     public Building(String name, String address, int nFloors) {
         if (name != null) { this.name = name; }
         if (address != null) { this.address = address; } 
@@ -32,20 +37,25 @@ public class Building {
         this.nFloors = nFloors;
     }
 
-    /* Accessors */
+    /** Accessor for building name*/
     public String getName() {
         return this.name;
     }
 
+    /** Accessor for building address */
     public String getAddress() {
         return this.address;
     }
 
+    /** Accessor for number of floors in building */
     public int getFloors() {
         return this.nFloors;
     }
 
-    /* Navigation methods */
+    /** Enter method
+     * @throws RuntimeException
+     * @returns pointer to current building
+     */
     public Building enter() {
         if (activeFloor != -1) {
             throw new RuntimeException("You are already inside this Building.");
@@ -55,6 +65,9 @@ public class Building {
         return this; // Return a pointer to the current building
     }
 
+    /** Exit method
+     * @throws RuntimeException
+     */
     public Building exit() {
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Building. Must call enter() before exit().");
@@ -67,6 +80,10 @@ public class Building {
         return null; // We're outside now, so the building is null
     }
 
+    /** Allows movement between floors
+     * @param floorNum destination floor number
+     * @throws RuntimeException
+     */
     public void goToFloor(int floorNum) {
         if (this.activeFloor == -1) {
             throw new RuntimeException("You are not inside this Building. Must call enter() before navigating between floors.");
